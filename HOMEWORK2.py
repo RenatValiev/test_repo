@@ -1,7 +1,12 @@
 import re
 from urllib.request import urlopen
 
-pageString = urlopen('http://htmlbook.ru/html/div').read().decode()
-tags_list = re.findall(r'<div>.+</div>|<h1>.+</h1>|<p>.+</p1>', pageString)
-for el in tags_list:
-    print(el)
+pageString = urlopen('https://en.wikipedia.org/wiki/NCAA_Division_I').read().decode()
+open_tags = re.findall(r'<div>|<h1>|<p>', pageString)
+closing_tags = re.findall(r'</div>|</h1>|</p1>', pageString)
+print(open_tags)
+print(closing_tags)
+if len(open_tags) == len(closing_tags):
+    print('Valid!')
+else:
+    print('Invalid :(')
