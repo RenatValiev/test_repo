@@ -22,6 +22,8 @@ def multiproc():
     processes = [Process(target=is_arr_sum_even) for i in range(4)]
     for process in processes:
         process.start()
+    for process in processes:
+        process.join()
     print(f'{time() - start} ns')
 
 
