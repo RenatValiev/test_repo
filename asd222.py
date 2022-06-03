@@ -33,18 +33,17 @@ class Queue:
 
 
 def search(graph, start):
-    # печать того, что мы нашли
-    frontier = Queue()
-    frontier.put(start)
+    f = Queue()
+    f.put(start)
     visited = {}
     visited[start] = True
 
-    while not frontier.empty():
-        current = frontier.get()
+    while not f.empty():
+        current = f.get()
         print("Visiting %r" % current)
         for next in graph.neighbors(current):
             if next not in visited:
-                frontier.put(next)
+                f.put(next)
                 visited[next] = True
 
 
